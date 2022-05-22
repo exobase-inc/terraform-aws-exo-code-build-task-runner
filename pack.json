@@ -3,7 +3,7 @@
   "service": "code-build",
   "language": "ts",
   "inputs": {
-    "envars": {
+    "envvars": {
       "ui": "envars"
     }
   },
