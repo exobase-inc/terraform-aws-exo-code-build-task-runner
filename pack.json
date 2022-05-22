@@ -1,0 +1,13 @@
+{
+  "type": "task-runner",
+  "service": "code-build",
+  "language": "ts",
+  "inputs": {
+    "envars": {
+      "ui": "envars"
+    }
+  },
+  "build": {
+    "before": "yarn && yarn zip"
+  }
+}
