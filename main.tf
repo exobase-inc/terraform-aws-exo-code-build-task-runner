@@ -46,7 +46,7 @@ resource "aws_codebuild_project" "main" {
     image_pull_credentials_type = "CODEBUILD"
 
     dynamic "environment_variable" {
-      for_each = local.envvars
+      for_each = local.project_envvars
       content {
         name  = environment_variable.value["name"]
         value = environment_variable.value["value"]
