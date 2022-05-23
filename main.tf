@@ -16,6 +16,16 @@ locals {
   service_uid       = substr(local.context.unit.id, -5, -1)
   service_name_safe = join("-", split(" ", lower(replace(local.context.unit.name, "[^\\w\\d]|_", ""))))
   service_key       = "${local.service_name_safe}-${local.service_uid}"
+  project_envvars   = concat(local.envvars, [
+    {
+      name = "DOCKERHUB_USER"
+      value = var.dockerhub_username
+    },
+    {
+      name = "DOCKERHUB_PASS"
+      value = var.dockerhub_password
+    }
+  ])
 }
 
 resource "aws_codebuild_project" "main" {

@@ -32,6 +32,16 @@ variable "use_bridge" {
   description = "Should a standard bridge API be deployed? You'll be able to make the same API call to the bridge between different packs that produce a task runner in other cloud providers or using other cloud services."
 }
 
+variable "dockerhub_username" {
+  type = string
+  description = "The username to your DockerHub account."
+}
+
+variable "dockerhub_password" {
+  type = string
+  description = "The password to your DockerHub account."
+}
+
 
 //
 //  Exobase Provided

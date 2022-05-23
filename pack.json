@@ -9,6 +9,12 @@
     },
     "use_bridge": {
       "label": "Use Bridge"
+    },
+    "dockerhub_username": {
+      "label": "DockerHub Username"
+    },
+    "dockerhub_password": {
+      "label": "DockerHub Password"
     }
   },
   "build": {

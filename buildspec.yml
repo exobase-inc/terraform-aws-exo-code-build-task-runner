@@ -1,6 +1,9 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - echo "$DOCKERHUB_PASS" | docker login --username $DOCKERHUB_USER --password-stdin
   build:
     commands:
       - {{command}}
