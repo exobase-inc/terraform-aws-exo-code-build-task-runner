@@ -19,7 +19,7 @@ const buildSourceZip = async () => {
   //
   // Install dependencies
   //
-  await cmd('yarn', { cwd: `${__dirname}/source` })
+  // await cmd('yarn', { cwd: `${__dirname}/source` })
 
   //
   // Generate zip
