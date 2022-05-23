@@ -177,6 +177,6 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "attach" {
   count = var.use_bridge ? 1 : 0
-  role       = module.bridge_api.role_arn
+  role       = module.bridge_api[0].role_arn
   policy_arn = aws_iam_policy.policy[0].arn
 }
