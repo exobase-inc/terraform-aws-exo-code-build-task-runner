@@ -144,8 +144,14 @@ module "bridge_api" {
   exo_context = var.exo_context
   exo_source = "${path.module}/bridge"
 
-  envvars = jsonencode({
-    AWS_CODE_BUILD_PROJECT_NAME = aws_codebuild_project.main.name
-    BRIDGE_API_KEY = "our-little-secret"
-  })
+  envvars = jsonencode([
+    {
+      name = "AWS_CODE_BUILD_PROJECT_NAME",
+      value = aws_codebuild_project.main.name
+    },
+    {
+      name = "BRIDGE_API_KEY",
+      value = our-little-secret
+    }
+  ])
 }
