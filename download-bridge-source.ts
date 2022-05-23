@@ -1,6 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import octo from 'octokit-downloader'
+import cmd from 'cmdish'
 
 const downloadBridgeSource = async () => {
 
@@ -17,6 +18,9 @@ const downloadBridgeSource = async () => {
     to: path.join(__dirname, 'bridge.zip'),
     unzip: true
   })
+
+  await cmd('yarn', { cwd: path.join(__dirname, 'bridge') })
+  await cmd('yarn build', { cwd: path.join(__dirname, 'bridge') })
 }
 
 downloadBridgeSource()
