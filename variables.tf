@@ -26,6 +26,12 @@ variable "envvars" {
   description = "Environment variables available to your build"
 }
 
+variable "use_bridge" {
+  type = bool
+  default = false
+  description = "Should a standard bridge API be deployed? You'll be able to make the same API call to the bridge between different packs that produce a task runner in other cloud providers or using other cloud services."
+}
+
 
 //
 //  Exobase Provided
@@ -33,4 +39,8 @@ variable "envvars" {
 
 variable "exo_context" {
   type = string // json:DeploymentContext
+}
+
+variable "exo_source" {
+  type = string // path to source
 }

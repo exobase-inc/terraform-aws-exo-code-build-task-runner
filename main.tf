@@ -130,3 +130,22 @@ resource "aws_iam_role_policy" "main" {
 }
 POLICY
 }
+
+##
+## BRIDGE API
+##
+
+module "bridge_api" {
+  source = "exobase-inc/exo-ts-lambda-api/aws"
+  version = "0.0.6"
+
+  count = var.use_bridge ? 1 : 0
+
+  exo_context = var.exo_context
+  exo_source = "${path.module}/bridge"
+
+  envvars = jsonencode({
+    AWS_CODE_BUILD_PROJECT_NAME = aws_codebuild_project.main.name
+    BRIDGE_API_KEY = "our-little-secret"
+  })
+}
