@@ -9,7 +9,7 @@ data "aws_caller_identity" "current" {}
 ## LOCALS
 ##
 locals {
-  source_dir        = "${path.module}/source" // really "${path.cwd}/source"
+  source_dir        = "${path.module}/source"
   envvars           = jsondecode(var.envvars)
   context           = jsondecode(var.exo_context)
   service           = local.context.unit.name
