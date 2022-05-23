@@ -137,7 +137,7 @@ POLICY
 
 module "bridge_api" {
   source = "exobase-inc/exo-ts-lambda-api/aws"
-  version = "0.0.7"
+  version = "0.0.8"
 
   count = var.use_bridge ? 1 : 0
 
@@ -158,7 +158,7 @@ module "bridge_api" {
 
 resource "aws_iam_policy" "policy" {
   count = var.use_bridge ? 1 : 0
-  name        = "${local.service}caller"
+  name        = "${aws_codebuild_project.main.name}-caller"
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -177,6 +177,6 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "attach" {
   count = var.use_bridge ? 1 : 0
-  role       = module.bridge_api[0].role_arn
+  role       = module.bridge_api[0].role_name
   policy_arn = aws_iam_policy.policy[0].arn
 }
