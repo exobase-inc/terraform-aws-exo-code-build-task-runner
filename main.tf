@@ -158,7 +158,7 @@ module "bridge_api" {
 
 resource "aws_iam_policy" "policy" {
   count = var.use_bridge ? 1 : 0
-  name        = "${aws_codebuild_project.main}-caller"
+  name        = "${aws_codebuild_project.main.name}-caller"
   policy = <<EOF
 {
   "Version": "2012-10-17",
