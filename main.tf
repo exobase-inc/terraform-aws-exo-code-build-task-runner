@@ -34,6 +34,7 @@ resource "aws_codebuild_project" "main" {
   build_timeout  = var.timeout
   queued_timeout = 5
   service_role   = aws_iam_role.main.arn
+  privileged_mode = true
 
   artifacts {
     type = "NO_ARTIFACTS"
