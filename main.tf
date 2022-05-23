@@ -151,7 +151,7 @@ module "bridge_api" {
     },
     {
       name = "BRIDGE_API_KEY",
-      value = our-little-secret
+      value = "our-little-secret"
     }
   ])
 }
